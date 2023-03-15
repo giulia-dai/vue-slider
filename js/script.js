@@ -56,5 +56,25 @@ createApp({
                 this.activeImage =  this.slides.length - 1;
             }
         },
-    }
+
+        // BONUS 1
+        changeOnClick(newImage){
+
+            this.activeImage= newImage;
+        },
+
+        //BONUS 2
+        autoPlay(){
+            return startAutoPlay= setInterval(this.nextImg,3000);
+        },
+        stopAutoPlay(){
+            clearInterval(startAutoPlay);
+        },
+        resumeAutoPlay(){
+            this.autoPlay();
+        },
+    },
+    mounted(){
+        this.autoPlay();
+    },
 }).mount('#app')
