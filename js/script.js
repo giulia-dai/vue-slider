@@ -42,6 +42,7 @@ createApp({
     methods: {
         nextImg() {
             this.activeImage++;
+            clock = null;
 
             // loop
             if (this.activeImage == this.slides.length) {
@@ -65,10 +66,10 @@ createApp({
 
         //BONUS 2
         autoPlay(){
-            return startAutoPlay= setInterval(this.nextImg,3000);
+            this.clock = setInterval(this.nextImg,3000);
         },
         stopAutoPlay(){
-            clearInterval(startAutoPlay);
+            clearInterval(this.clock);
         },
         resumeAutoPlay(){
             this.autoPlay();
